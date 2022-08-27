@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -24,3 +28,36 @@ a {
     background: black;
   }
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  white-space: nowrap !important ;
+}
+
+#sidebar_scrollContainer {
+  background-color: red;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.custom_range {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+/* .custom_range:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  background-color: limegreen;
+  width: 80%;
+  height: 100px;
+  z-index: 50;
+} */

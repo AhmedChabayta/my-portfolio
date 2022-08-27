@@ -9,12 +9,36 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/server": "^11.10.0",
+    "@mantine/carousel": "^5.2.3",
+    "@mantine/core": "^5.2.3",
+    "@mantine/dates": "^5.2.3",
+    "@mantine/dropzone": "^5.2.3",
+    "@mantine/form": "^5.2.3",
+    "@mantine/hooks": "^5.2.3",
+    "@mantine/modals": "^5.2.3",
+    "@mantine/next": "^5.2.3",
+    "@mantine/notifications": "^5.2.3",
+    "@mantine/nprogress": "^5.2.3",
+    "@mantine/prism": "^5.2.3",
+    "@mantine/rte": "^5.2.3",
+    "@mantine/spotlight": "^5.2.3",
+    "@tabler/icons": "^1.90.0",
+    "cookies-next": "^2.1.1",
+    "dayjs": "^1.11.5",
+    "embla-carousel-react": "^7.0.1",
+    "feather-icons": "^4.29.0",
+    "framer-motion": "^7.2.1",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.8",
     "eslint": "8.23.0",
-    "eslint-config-next": "12.2.5"
+    "eslint-config-next": "12.2.5",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8"
   }
 }
