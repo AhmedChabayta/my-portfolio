@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import {
+  ActionIcon,
   Group,
   Stack,
   Text,
@@ -46,10 +47,18 @@ const TopSidebar = () => {
           my={25}
           style={{ justifyContent: 'space-evenly', width: '100%' }}
         >
-          <IconBrandFacebook />
-          <IconBrandInstagram />
-          <IconBrandLinkedin />
-          <IconBrandTwitter />
+          <ActionIcon component="a">
+            <IconBrandFacebook />
+          </ActionIcon>
+          <ActionIcon component="a">
+            <IconBrandInstagram />
+          </ActionIcon>
+          <ActionIcon component="a">
+            <IconBrandLinkedin />
+          </ActionIcon>
+          <ActionIcon component="a">
+            <IconBrandTwitter />
+          </ActionIcon>
         </Group>
       </Stack>
     </div>
