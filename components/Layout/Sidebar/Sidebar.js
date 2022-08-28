@@ -9,24 +9,36 @@ import { ComputerLanguages, frameworks } from '../../../data/languages';
 import TopSidebar from './TopSidebar';
 import Bio from './Bio';
 import { Languages, Frameworks } from './Languages';
+import { colors } from '../../../styles/colors';
 
-const Sidebar = () => {
+const Sidebar = ({ show }) => {
   const theme = useMantineTheme();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
     <Stack
-      className="sidebar_scrollContainer"
+      className={`sidebar_scrollContainer ${
+        show ? '' : 'opacity-0'
+      } transition-all duration-150 ease-linear`}
       align="center"
       style={{
         overflowY: 'scroll',
+        overflowX: 'hidden',
         height: '100%',
         msOverflowStyle: 'none',
         scrollbarWidth: 'none',
       }}
     >
       <TopSidebar />
-      <hr style={{ width: '70%', margin: '25px 0', opacity: 0.5 }} />
+      <hr
+        style={{
+          width: '70%',
+          margin: '25px 0',
+          opacity: 1,
+          border: `2px solid ${colors.cyan500}`,
+          borderRadius: '20px',
+        }}
+      />
       <Stack style={{ width: '100%' }}>
         <Bio />
         <Languages />

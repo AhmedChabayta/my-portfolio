@@ -1,29 +1,33 @@
 import {
-  AppShell,
   ActionIcon,
+  Burger,
+  Group,
+  Text,
   useMantineColorScheme,
-  Button,
-  useMantineTheme,
-  Transition,
 } from '@mantine/core';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
-import { useState } from 'react';
 import Sidebar from './Sidebar/Sidebar';
-import { IconMenu, IconSun, IconMoonStars } from '@tabler/icons';
-import { motion as m } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
+import { Kbd } from '@mantine/core';
+import { useState } from 'react';
 
 const Layout = ({ children }) => {
   const [show, setShow] = useLocalStorage({
     key: 'show',
     defaultValue: '',
   });
-  const theme = useMantineTheme();
+  const [showHelpers, setShowHelpers] = useState(true);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-
   useHotkeys([['mod+C', () => toggleColorScheme()]]);
-  useHotkeys([['mod+S', () => setShow((prevShow) => !prevShow)]]);
+  useHotkeys([['mod+V', () => handleShow()]]);
+
+  const handleShow = () => {
+    setShowHelpers(false);
+    setShow((prevShow) => !prevShow);
+  };
+
   return (
-    <m.main
+    <motion.main
       layout
       style={{
         display: 'flex',
@@ -33,48 +37,55 @@ const Layout = ({ children }) => {
         position: 'relative',
       }}
     >
-      <m.ActionIcon //burger button
-        initial={{ x: 0 }}
-        variant="transparent"
+      {/* //burger button */}
+      <Group
         style={{
           zIndex: 100,
           position: 'fixed',
-          left: 0,
-          top: 0,
+          left: 10,
+          top: 10,
           cursor: 'pointer',
         }}
-        onClick={() => setShow((prevShow) => !prevShow)}
       >
-        <IconMenu />
-      </m.ActionIcon>
+        <Burger
+          color={colorScheme === 'light' ? '#000000' : '#ffffff'}
+          onClick={() => setShow((prevShow) => !prevShow)}
+        />
+        {showHelpers && (
+          <Group>
+            <Kbd>⌘</Kbd> + <Kbd>c</Kbd> or <Kbd>⌘</Kbd> + <Kbd>v</Kbd>
+          </Group>
+        )}
+      </Group>
 
-      <m.div
-        className="w-screen lg:w-fit"
+      <motion.div
+        className={`w-screen lg:w-fit will-change-transform ${
+          show ? 'block' : 'hidden'
+        } transform-gpu`}
         layout
-        initial={{ x: 0 }}
+        initial={{ y: '100%' }}
         animate={{
-          x: show ? 0 : -500,
-          width: show ? '' : 0,
+          y: show ? '100%' : '-100%',
         }}
         transition={{
-          duration: 0.3,
-          ease: 'easeInOut',
+          type: 'spring',
+          stiffness: 90,
+          damping: 14,
         }}
       >
         <Sidebar show={show} />
-      </m.div>
+      </motion.div>
 
-      <m.div
+      <motion.div
         layout
         style={{
           flex: 1,
-          height: '100vh',
           overflowY: 'scroll',
         }}
       >
         {children}
-      </m.div>
-    </m.main>
+      </motion.div>
+    </motion.main>
   );
 };
 export default Layout;

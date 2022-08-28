@@ -15,6 +15,8 @@ import {
   IconBrandLinkedin,
   IconBrandTwitter,
 } from '@tabler/icons';
+import Link from 'next/link';
+import { colors } from '../../../styles/colors';
 
 const TopSidebar = () => {
   const theme = useMantineTheme();
@@ -23,11 +25,12 @@ const TopSidebar = () => {
     <div>
       <Stack align="center" justify="center" mt={50}>
         <img
+          className=""
           onClick={() => toggleColorScheme()}
           style={{
             cursor: 'pointer',
             border:
-              colorScheme === 'light' ? '5px solid black' : '5px solid gray',
+              colorScheme === 'light' ? '' : `5px solid ${colors.cyan500}`,
             borderRadius: '100%',
             height: 150,
             width: 150,
@@ -47,12 +50,16 @@ const TopSidebar = () => {
           my={25}
           style={{ justifyContent: 'space-evenly', width: '100%' }}
         >
-          <ActionIcon component="a">
-            <IconBrandFacebook />
-          </ActionIcon>
-          <ActionIcon component="a">
-            <IconBrandInstagram />
-          </ActionIcon>
+          <Link href="/somewhere">
+            <ActionIcon component="a">
+              <IconBrandFacebook />
+            </ActionIcon>
+          </Link>
+          <Link href="/">
+            <ActionIcon component="a">
+              <IconBrandInstagram />
+            </ActionIcon>
+          </Link>
           <ActionIcon component="a">
             <IconBrandLinkedin />
           </ActionIcon>

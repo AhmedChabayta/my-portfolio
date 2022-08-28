@@ -1,7 +1,9 @@
 import { ColorSchemeProvider, MantineProvider } from '@mantine/core';
-import { getCookie, setCookies } from 'cookies-next';
+import { NavigationProgress } from '@mantine/nprogress';
+import { getCookie, setCookie } from 'cookies-next';
 import { useState } from 'react';
 import { Layout } from '../components/Layout';
+import RouterTransition from '../components/RouterTransition';
 import '../styles/globals.css';
 
 export default function App(props) {
@@ -14,7 +16,7 @@ export default function App(props) {
       value || (colorScheme === 'dark' ? 'light' : 'dark');
     setColorScheme(nextColorScheme);
     // when color scheme is updated save it to cookie
-    setCookies('mantine-color-scheme', nextColorScheme, {
+    setCookie('mantine-color-scheme', nextColorScheme, {
       maxAge: 60 * 60 * 24 * 30,
     });
   };
@@ -32,6 +34,7 @@ export default function App(props) {
           <Layout>
             <Component {...pageProps} />
           </Layout>
+          <RouterTransition />
         </MantineProvider>
       </ColorSchemeProvider>
     </>
