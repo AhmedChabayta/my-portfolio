@@ -1,25 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import {
+  ScrollArea,
   Stack,
-  Text,
   useMantineColorScheme,
   useMantineTheme,
 } from '@mantine/core';
-import { ComputerLanguages, frameworks } from '../../../data/languages';
 import TopSidebar from './TopSidebar';
 import Bio from './Bio';
 import { Languages, Frameworks } from './Languages';
 import { colors } from '../../../styles/colors';
 
-const Sidebar = ({ show }) => {
+const Sidebar = () => {
   const theme = useMantineTheme();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
     <Stack
-      className={`sidebar_scrollContainer ${
-        show ? '' : 'opacity-0'
-      } transition-all duration-150 ease-linear`}
       align="center"
       style={{
         overflowY: 'scroll',
@@ -27,6 +23,7 @@ const Sidebar = ({ show }) => {
         height: '100%',
         msOverflowStyle: 'none',
         scrollbarWidth: 'none',
+        scrollBehavior: 'smooth',
       }}
     >
       <TopSidebar />

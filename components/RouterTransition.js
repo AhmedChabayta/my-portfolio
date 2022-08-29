@@ -26,5 +26,5 @@ export default function RouterTransition() {
     };
   }, [router.asPath, router.events]);
 
-  return <NavigationProgress size="lg" color="red" />;
+  return <NavigationProgress color="red" />;
 }

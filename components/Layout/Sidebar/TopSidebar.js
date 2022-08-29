@@ -25,19 +25,16 @@ const TopSidebar = () => {
     <div>
       <Stack align="center" justify="center" mt={50}>
         <img
-          className=""
           onClick={() => toggleColorScheme()}
           style={{
             cursor: 'pointer',
-            border:
-              colorScheme === 'light' ? '' : `5px solid ${colors.cyan500}`,
+            border: colorScheme === 'dark' ? `5px solid ${colors.cyan500}` : '',
             borderRadius: '100%',
             height: 150,
             width: 150,
           }}
           alt=""
           src="/fractalhat.jpg"
-          size="xl"
         />
 
         <Text size="xl" weight={800}>

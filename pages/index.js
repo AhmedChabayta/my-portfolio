@@ -7,6 +7,21 @@ import { IconDeviceLaptop } from '@tabler/icons';
 import { motion } from 'framer-motion';
 
 export default function Home() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 },
+  };
+
   return (
     <Stack style={{ overflow: 'hidden', flexShrink: 0 }}>
       <Group
@@ -31,7 +46,7 @@ export default function Home() {
           alt="me"
         />
       </Group>
-      <Group className="justify-center items-center p-8">
+      <Group position="center" align="center">
         <WhatDo Icon={IconDeviceLaptop} title="Web Design" />
         <WhatDo Icon={IconDeviceLaptop} title="Prototyping" />
         <WhatDo Icon={IconDeviceLaptop} title="Per Page" />
