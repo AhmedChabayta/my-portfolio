@@ -1,15 +1,13 @@
-import {
-  ActionIcon,
-  Burger,
-  Group,
-  Text,
-  useMantineColorScheme,
-} from '@mantine/core';
+import { Burger, Group, useMantineColorScheme } from '@mantine/core';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 import Sidebar from './Sidebar/Sidebar';
 import { motion, useScroll } from 'framer-motion';
 import { Kbd } from '@mantine/core';
 import { useState } from 'react';
+import {
+  IconLayoutSidebarLeftCollapse,
+  IconLayoutSidebarLeftExpand,
+} from '@tabler/icons';
 
 const Layout = ({ children }) => {
   const [show, setShow] = useLocalStorage({
@@ -42,17 +40,26 @@ const Layout = ({ children }) => {
         style={{
           zIndex: 100,
           position: 'fixed',
-          left: 10,
-          top: 10,
+          left: 1,
+          top: 1,
           cursor: 'pointer',
         }}
       >
-        <Burger
-          color={colorScheme === 'light' ? '#000000' : '#ffffff'}
-          onClick={() => setShow((prevShow) => !prevShow)}
-        />
+        {show ? (
+          <IconLayoutSidebarLeftCollapse
+            className="opacity-[0.5] hover:opacity-[1] transition-transform ease-linear"
+            color={colorScheme === 'light' ? '#000000' : '#ffffff'}
+            onClick={() => setShow((prevShow) => !prevShow)}
+          />
+        ) : (
+          <IconLayoutSidebarLeftExpand
+            className="opacity-[0.5] hover:opacity-[1] transition-transform ease-linear"
+            color={colorScheme === 'light' ? '#000000' : '#ffffff'}
+            onClick={() => setShow((prevShow) => !prevShow)}
+          />
+        )}
         {showHelpers && (
-          <Group>
+          <Group className="hidden md:flex">
             <Kbd>⌘</Kbd> + <Kbd>c</Kbd> or <Kbd>⌘</Kbd> + <Kbd>v</Kbd>
           </Group>
         )}

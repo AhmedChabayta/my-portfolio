@@ -31,7 +31,7 @@ export default function Home() {
           alt="me"
         />
       </Group>
-      <Group className="justify-center items-center">
+      <Group className="justify-center items-center p-8">
         <WhatDo Icon={IconDeviceLaptop} title="Web Design" />
         <WhatDo Icon={IconDeviceLaptop} title="Prototyping" />
         <WhatDo Icon={IconDeviceLaptop} title="Per Page" />
