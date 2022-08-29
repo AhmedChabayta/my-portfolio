@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Sidebar from './Sidebar/Sidebar';
 
-const SidebarContainer = ({ show }) => {
+function SidebarContainer({ show }) {
   return (
     <motion.div
       className={`w-screen lg:w-fit will-change-transform ${
@@ -21,5 +21,5 @@ const SidebarContainer = ({ show }) => {
       <Sidebar show={show} />
     </motion.div>
   );
-};
+}
 export default SidebarContainer;

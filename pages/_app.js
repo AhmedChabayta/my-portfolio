@@ -1,5 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
 import { ColorSchemeProvider, MantineProvider } from '@mantine/core';
-import { NavigationProgress } from '@mantine/nprogress';
 import { getCookie, setCookie } from 'cookies-next';
 import { useState } from 'react';
 import { Layout } from '../components/Layout';
@@ -21,23 +21,21 @@ export default function App(props) {
     });
   };
   return (
-    <>
-      <ColorSchemeProvider
-        colorScheme={colorScheme}
-        toggleColorScheme={toggleColorScheme}
+    <ColorSchemeProvider
+      colorScheme={colorScheme}
+      toggleColorScheme={toggleColorScheme}
+    >
+      <MantineProvider
+        theme={{ colorScheme }}
+        withGlobalStyles
+        withNormalizeCSS
       >
-        <MantineProvider
-          theme={{ colorScheme }}
-          withGlobalStyles
-          withNormalizeCSS
-        >
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-          <RouterTransition />
-        </MantineProvider>
-      </ColorSchemeProvider>
-    </>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+        <RouterTransition />
+      </MantineProvider>
+    </ColorSchemeProvider>
   );
 }
 

@@ -1,6 +1,6 @@
 import { Group, Stack, Text } from '@mantine/core';
 
-const Bio = () => {
+function Bio() {
   return (
     <Stack className="whitespace-nowrap">
       <Group
@@ -35,5 +35,5 @@ const Bio = () => {
       </Group>
     </Stack>
   );
-};
+}
 export default Bio;

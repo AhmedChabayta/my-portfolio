@@ -1,6 +1,6 @@
-const Nav = () => {
+function Nav() {
   return (
     <div>Nav</div>
-  )
+  );
 }
-export default Nav
+export default Nav;

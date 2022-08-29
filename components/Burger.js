@@ -4,8 +4,8 @@ import {
   IconLayoutSidebarLeftExpand,
 } from '@tabler/icons';
 
-const Burger = ({ show, showHelpers, setShow }) => {
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+function Burger({ show, showHelpers, setShow }) {
+  const { colorScheme } = useMantineColorScheme();
   return (
     <Group
       style={{
@@ -31,10 +31,11 @@ const Burger = ({ show, showHelpers, setShow }) => {
       )}
       {showHelpers && (
         <Group className="hidden md:flex">
-          <Kbd>⌘</Kbd> + <Kbd>c</Kbd> or <Kbd>⌘</Kbd> + <Kbd>v</Kbd>
+          <Kbd>⌘</Kbd> +<Kbd>c</Kbd> or
+          <Kbd>⌘</Kbd> +<Kbd>v</Kbd>
         </Group>
       )}
     </Group>
   );
-};
+}
 export default Burger;

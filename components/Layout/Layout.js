@@ -1,32 +1,25 @@
-import { Group, useMantineColorScheme } from '@mantine/core';
+import { useMantineColorScheme } from '@mantine/core';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
-import Sidebar from './Sidebar/Sidebar';
-import { motion, useScroll } from 'framer-motion';
-import { Kbd } from '@mantine/core';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
-import {
-  IconLayoutSidebarLeftCollapse,
-  IconLayoutSidebarLeftExpand,
-} from '@tabler/icons';
 import Burger from '../Burger';
 import SidebarContainer from './SidebarContainer';
 
-const Layout = ({ children }) => {
+function Layout({ children }) {
+  const [showHelpers, setShowHelpers] = useState(true);
   const [show, setShow] = useLocalStorage({
     key: 'show',
     defaultValue: '',
   });
-  const [showHelpers, setShowHelpers] = useState(true); // keyboard shortcuts
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  useHotkeys([['mod+C', () => toggleColorScheme()]]);
-  useHotkeys([['mod+V', () => handleShow()]]);
-
   const handleShow = () => {
     setShow((prevShow) => !prevShow);
-    if (!show) {
+    if (show) {
       setShowHelpers(false);
     }
   };
+  const { toggleColorScheme } = useMantineColorScheme();
+  useHotkeys([['mod+C', () => toggleColorScheme()]]);
+  useHotkeys([['mod+V', () => handleShow()]]);
 
   return (
     <motion.main
@@ -48,11 +41,11 @@ const Layout = ({ children }) => {
         style={{
           flex: 1,
           overflowY: 'scroll',
-        }}  
+        }}
       >
         {children}
       </motion.div>
     </motion.main>
   );
-};
+}
 export default Layout;

@@ -1,15 +1,13 @@
-/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import {
   ActionIcon,
   Group,
   Stack,
   Text,
   useMantineColorScheme,
-  useMantineTheme,
 } from '@mantine/core';
 import {
-  IconSun,
-  IconMoonStars,
   IconBrandInstagram,
   IconBrandFacebook,
   IconBrandLinkedin,
@@ -18,8 +16,7 @@ import {
 import Link from 'next/link';
 import { colors } from '../../../styles/colors';
 
-const TopSidebar = () => {
-  const theme = useMantineTheme();
+function TopSidebar() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   return (
     <div>
@@ -41,8 +38,9 @@ const TopSidebar = () => {
           Ahmed Chabayta
         </Text>
         <Text color="dimmed" size="md">
-          Front-End Developer
+          Frontend Developer
         </Text>
+        <Text size="xs">Primarily focused on React & Nextjs</Text>
         <Group
           my={25}
           style={{ justifyContent: 'space-evenly', width: '100%' }}
@@ -67,5 +65,5 @@ const TopSidebar = () => {
       </Stack>
     </div>
   );
-};
+}
 export default TopSidebar;

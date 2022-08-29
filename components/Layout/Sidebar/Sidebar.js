@@ -1,19 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
-import {
-  ScrollArea,
-  Stack,
-  useMantineColorScheme,
-  useMantineTheme,
-} from '@mantine/core';
+import { Stack } from '@mantine/core';
 import TopSidebar from './TopSidebar';
 import Bio from './Bio';
 import { Languages, Frameworks } from './Languages';
 import { colors } from '../../../styles/colors';
 
-const Sidebar = () => {
-  const theme = useMantineTheme();
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-
+function Sidebar() {
   return (
     <Stack
       align="center"
@@ -43,5 +34,5 @@ const Sidebar = () => {
       </Stack>
     </Stack>
   );
-};
+}
 export default Sidebar;

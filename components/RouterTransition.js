@@ -11,8 +11,7 @@ export default function RouterTransition() {
   const router = useRouter();
 
   useEffect(() => {
-    const handleStart = (url) =>
-      url !== router.asPath && startNavigationProgress();
+    const handleStart = (url) => url !== router.asPath && startNavigationProgress();
     const handleComplete = () => resetNavigationProgress();
 
     router.events.on('routeChangeStart', handleStart);
