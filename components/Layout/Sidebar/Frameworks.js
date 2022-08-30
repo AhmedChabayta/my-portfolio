@@ -1,15 +1,14 @@
 import { Stack, Text } from "@mantine/core";
 import { motion } from "framer-motion";
-import { ComputerLanguages } from "../../../data/languages";
+import { frameworks } from "../../../data/languages";
 
-export default function Languages() {
+export default function Frameworks() {
   return (
     <Stack justify="center" p={50}>
       <Text className="whitespace-nowrap" size="xl" weight="900" my={20}>
-        Computer Languages
+        Frameworks & Libraries
       </Text>
-
-      {ComputerLanguages.map((language) => (
+      {frameworks.map((language) => (
         <div
           style={{ margin: "15px 0", whiteSpace: "nowrap" }}
           key={language.title}

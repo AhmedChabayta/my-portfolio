@@ -1,10 +1,10 @@
 /* eslint-disable react/destructuring-assignment */
-import { ColorSchemeProvider, MantineProvider } from '@mantine/core';
-import { getCookie, setCookie } from 'cookies-next';
-import { useState } from 'react';
-import { Layout } from '../components/Layout';
-import RouterTransition from '../components/RouterTransition';
-import '../styles/globals.css';
+import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import { getCookie, setCookie } from "cookies-next";
+import { useState } from "react";
+import { Layout } from "../components/Layout";
+import RouterTransition from "../components/RouterTransition";
+import "../styles/globals.css";
 
 export default function App(props) {
   const { Component, pageProps } = props;
@@ -13,10 +13,10 @@ export default function App(props) {
 
   const toggleColorScheme = (value) => {
     const nextColorScheme =
-      value || (colorScheme === 'dark' ? 'light' : 'dark');
+      value || (colorScheme === "dark" ? "light" : "dark");
     setColorScheme(nextColorScheme);
     // when color scheme is updated save it to cookie
-    setCookie('mantine-color-scheme', nextColorScheme, {
+    setCookie("mantine-color-scheme", nextColorScheme, {
       maxAge: 60 * 60 * 24 * 30,
     });
   };
@@ -26,13 +26,23 @@ export default function App(props) {
       toggleColorScheme={toggleColorScheme}
     >
       <MantineProvider
-        theme={{ colorScheme }}
+        theme={{
+          colorScheme,
+          breakpoints: {
+            xs: 500,
+            sm: 800,
+            md: 1000,
+            lg: 1200,
+            xl: 1400,
+          },
+        }}
         withGlobalStyles
         withNormalizeCSS
       >
         <Layout>
           <Component {...pageProps} />
         </Layout>
+
         <RouterTransition />
       </MantineProvider>
     </ColorSchemeProvider>
@@ -41,5 +51,5 @@ export default function App(props) {
 
 App.getInitialProps = ({ ctx }) => ({
   // get color scheme from cookie
-  colorScheme: getCookie('mantine-color-scheme', ctx) || 'light',
+  colorScheme: getCookie("mantine-color-scheme", ctx) || "light",
 });

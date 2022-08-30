@@ -33,7 +33,6 @@ a {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  flex-shrink: 0 !important;
 }
 
 #sidebar_scrollContainer {
@@ -54,4 +53,12 @@ a {
 
 .mantine-Text-root {
   overflow: none;
+}
+
+.name_css::before {
+  content: "Ahmed Chabayta";
+  position: absolute;
+  top: -0.5em;
+  left: 0;
+  font-size: 20px;
 }
