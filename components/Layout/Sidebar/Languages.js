@@ -23,11 +23,11 @@ export default function Languages() {
             className="custom_range whitespace-nowrap"
           >
             <motion.div
-              className="absolute top-0 left-0 bg-gradient-to-r from-cyan-500 via-cyan-600 to-teal-500 rounded"
-              initial={{ width: 0 }}
+              className="bg-gradient-to-r from-cyan-500 via-cyan-600 to-teal-500 rounded"
+              style={{ display: "absolute", top: 0, left: 0 }}
+              initial={{ width: 0, height: "100%" }}
               whileInView={{
                 width: language.rating,
-                height: "100%",
                 zIndex: 50,
               }}
               transition={{

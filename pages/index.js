@@ -1,10 +1,4 @@
-import {
-  Group,
-  Stack,
-  Text,
-  Title,
-  useMantineColorScheme,
-} from "@mantine/core";
+import { Group, Stack, Text, Title, useMantineTheme } from "@mantine/core";
 import { IconDeviceLaptop } from "@tabler/icons";
 import { FeaturesGrid } from "../components/FeaturesGrid";
 import WhatDo from "../components/WhatDo";
@@ -12,11 +6,20 @@ import useStyles from "../hooks/useStyles";
 import { colors } from "../styles/colors";
 
 export default function Home() {
-  const { colorScheme } = useMantineColorScheme();
+  const theme = useMantineTheme();
   const { classes } = useStyles();
 
   return (
-    <Stack pt={50} pb={100} style={{ overflow: "hidden", flexShrink: 0 }}>
+    <Stack
+      pt={50}
+      pb={100}
+      style={{
+        overflow: "hidden",
+        flexShrink: 0,
+        background:
+          theme.colorScheme === "dark" ? colors.gray900 : colors.white,
+      }}
+    >
       <Group
         px="2rem"
         pt="2rem"
@@ -33,7 +36,10 @@ export default function Home() {
           <Title sx={{ margin: 0 }} className="name_css relative text-5xl">
             <Text
               style={{
-                color: colorScheme === "dark" ? colors.cyan500 : colors.teal300,
+                color:
+                  theme.colorScheme === "dark"
+                    ? colors.cyan500
+                    : colors.teal300,
               }}
               span
               className="text-cyan-500"
@@ -65,13 +71,18 @@ export default function Home() {
       />
 
       <Stack>
-        <Group position="center" align="center">
+        <Group
+          style={{ justifyContent: "space-evenly", maxWidth: "900px" }}
+          align="center"
+          mx="auto"
+          mb={50}
+        >
           <WhatDo Icon={IconDeviceLaptop} title="Web Design" />
           <WhatDo Icon={IconDeviceLaptop} title="Prototyping" />
           <WhatDo Icon={IconDeviceLaptop} title="Per Page" />
           <WhatDo Icon={IconDeviceLaptop} title="Per Project" />
-          <WhatDo Icon={IconDeviceLaptop} title="Per Project" />
         </Group>
+
         <FeaturesGrid />
       </Stack>
     </Stack>

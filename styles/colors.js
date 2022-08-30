@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/prefer-default-export
 export const colors = {
   transparent: 'transparent',
   black: '#000000',

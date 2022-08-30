@@ -3,8 +3,9 @@ import { colors } from "../styles/colors";
 
 const useStyles = createStyles((theme) => ({
   sidebarContainer: {
+    display: "flex",
     backgroundColor:
-      theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.white,
+      theme.colorScheme === "dark" ? colors.gray900 : theme.colors.white,
     width: "fit-content",
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
       width: "100vw",

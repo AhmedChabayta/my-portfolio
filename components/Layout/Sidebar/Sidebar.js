@@ -8,7 +8,7 @@ import { colors } from "../../../styles/colors";
 function Sidebar() {
   return (
     <Stack
-      className="scrollbar-hide border-r border-cyan-500"
+      className="scrollbar-hide "
       align="center"
       style={{
         overflowY: "scroll",

@@ -15,6 +15,7 @@ import {
   IconLock,
 } from "@tabler/icons";
 import { motion } from "framer-motion";
+import { colors } from "../styles/colors";
 
 export const MOCKDATA = [
   {
@@ -63,9 +64,7 @@ export function Feature({ icon: Icon, title, description }) {
       style={{
         padding: "15px",
         backgroundColor:
-          theme.colorScheme === "dark"
-            ? theme.colors.dark[7]
-            : theme.colors.gray[1],
+          theme.colorScheme === "dark" ? colors.cyan900 : theme.colors.gray[1],
         borderRadius: "10px",
       }}
     >
@@ -124,8 +123,8 @@ export function FeaturesGrid({ title, description, data = MOCKDATA }) {
         cols={3}
         spacing={theme.spacing.xl * 2}
         breakpoints={[
-          { maxWidth: 980, cols: 2, spacing: "xl" },
-          { maxWidth: 755, cols: 1, spacing: "xl" },
+          { maxWidth: 980, cols: 2 },
+          { maxWidth: 755, cols: 1 },
         ]}
       >
         {features}

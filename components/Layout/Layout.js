@@ -65,10 +65,10 @@ function Layout({ children }) {
           bottom: 0,
           left: 0,
           right: 0,
-          height: "60px",
+          height: "70px",
           borderTop: `1px solid ${colors.cyan500}`,
           background:
-            theme.colorScheme === "dark" ? theme.colors.dark[7] : colors.white,
+            theme.colorScheme === "dark" ? colors.gray900 : colors.white,
         }}
       >
         <FooterNav />
