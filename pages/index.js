@@ -8,7 +8,7 @@ import { colors } from "../styles/colors";
 export default function Home() {
   const theme = useMantineTheme();
   const { classes } = useStyles();
-
+  console.log(theme);
   return (
     <Stack
       pt={50}
@@ -17,7 +17,7 @@ export default function Home() {
         overflow: "hidden",
         flexShrink: 0,
         background:
-          theme.colorScheme === "dark" ? colors.gray900 : colors.white,
+          theme.colorScheme === "dark" ? theme.colors.dark[9] : colors.white,
       }}
     >
       <Group
