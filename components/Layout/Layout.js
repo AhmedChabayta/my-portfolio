@@ -4,8 +4,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Burger from "../Burger";
 import SidebarContainer from "./SidebarContainer";
-import FooterNav from "./Navigation/FooterNav";
 import { colors } from "../../styles/colors";
+import GetInTouch from "../GetInTouch";
+import ShortcutIndex from "./ShortcutIndex";
 
 function Layout({ children }) {
   const [showHelpers, setShowHelpers] = useState(false);
@@ -61,7 +62,7 @@ function Layout({ children }) {
           position: "fixed",
           display: "flex",
           alignItems: "center",
-          justifyContent: "flex-end",
+          justifyContent: "space-between",
           bottom: 0,
           left: 0,
           right: 0,
@@ -71,7 +72,9 @@ function Layout({ children }) {
             theme.colorScheme === "dark" ? colors.gray900 : colors.white,
         }}
       >
-        <FooterNav />
+        {/* <FooterNav /> */}
+        <GetInTouch />
+        <ShortcutIndex />
       </footer>
     </motion.div>
   );
