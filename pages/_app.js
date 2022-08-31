@@ -44,7 +44,7 @@ export default function App(props) {
               "#9ca3af",
               "#6b7280",
               "#4b5563",
-              "#374151",
+              "#111827",
               "#1f2937",
               "#111827",
             ],
@@ -54,10 +54,9 @@ export default function App(props) {
         withNormalizeCSS
       >
         <Layout>
+          <RouterTransition />
           <Component {...pageProps} />
         </Layout>
-
-        <RouterTransition />
       </MantineProvider>
     </ColorSchemeProvider>
   );

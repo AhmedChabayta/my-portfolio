@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 import Sidebar from "./Sidebar/Sidebar";
-import useStyles from "../../hooks/useStyles";
-import { colors } from "../../styles/colors";
+import sidebarContainerStyles from "../../styles/sidebarContainer.styles";
 
 function SidebarContainer({ show }) {
-  const { classes } = useStyles();
+  const { classes } = sidebarContainerStyles();
   return (
     <motion.div
       className={`${classes.sidebarContainer} will-change-transform transform-gpu relative`}
@@ -13,24 +12,15 @@ function SidebarContainer({ show }) {
       animate={{
         y: show ? "100%" : "-100%",
       }}
-      transition={{
-        type: "spring",
-        stiffness: 90,
-        damping: 14,
-      }}
       style={{
         display: show ? "block" : "none",
       }}
+      transition={{
+        duration: 0.2,
+        ease: "easeInOut",
+      }}
     >
-      <hr
-        style={{
-          position: "fixed",
-          right: 0,
-          top: 0,
-          height: "100vh",
-          border: `0.1px solid ${colors.cyan500}`,
-        }}
-      />
+      {/* VERTICAL line RIGHT side of sidebar */}
       <Sidebar show={show} />
     </motion.div>
   );

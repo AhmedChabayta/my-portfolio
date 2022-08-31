@@ -16,8 +16,8 @@ function Burger({ show, showHelpers, setShow, setShowHelpers }) {
       style={{
         zIndex: 100,
         position: "fixed",
-        left: 1,
-        top: 1,
+        left: 3,
+        top: 3,
         cursor: "pointer",
       }}
     >

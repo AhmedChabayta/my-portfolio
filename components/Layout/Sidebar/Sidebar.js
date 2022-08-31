@@ -4,20 +4,12 @@ import Bio from "./Bio";
 import Languages from "./Languages";
 import Frameworks from "./Frameworks";
 import { colors } from "../../../styles/colors";
+import sidebarStyles from "../../../styles/sidebar.styles";
 
 function Sidebar() {
+  const { classes } = sidebarStyles();
   return (
-    <Stack
-      className="scrollbar-hide "
-      align="center"
-      style={{
-        overflowY: "scroll",
-        overflowX: "hidden",
-        height: "100%",
-        scrollBehavior: "smooth",
-        minWidth: "400px",
-      }}
-    >
+    <Stack className={`${classes.container} scrollbar-hide`} align="center">
       <TopSidebar />
       <hr
         style={{

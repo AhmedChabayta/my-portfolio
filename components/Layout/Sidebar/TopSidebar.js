@@ -13,23 +13,22 @@ import {
   IconBrandLinkedin,
   IconBrandTwitter,
 } from "@tabler/icons";
+import Image from "next/image";
 import Link from "next/link";
-import { colors } from "../../../styles/colors";
+import topSidebarStyles from "../../../styles/topSidebar.styles";
 
 function TopSidebar() {
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const { toggleColorScheme } = useMantineColorScheme();
+  const { classes } = topSidebarStyles();
+
   return (
     <Stack align="center" justify="center" mt={50}>
-      <img
+      <Image
         onClick={() => toggleColorScheme()}
-        style={{
-          cursor: "pointer",
-          border: colorScheme === "dark" ? `5px solid ${colors.cyan500}` : "",
-          borderRadius: "100%",
-          height: 150,
-          width: 150,
-        }}
+        className={classes.image}
         alt=""
+        height={150}
+        width={150}
         src="/fractalhat.jpg"
       />
 
@@ -40,7 +39,7 @@ function TopSidebar() {
         Frontend Developer
       </Text>
       <Text size="xs">Primarily focused on React & Nextjs</Text>
-      <Group my={25} style={{ justifyContent: "space-evenly", width: "100%" }}>
+      <Group my={25} className={classes.spaceEvenly}>
         <Link href="/somewhere">
           <ActionIcon component="a">
             <IconBrandFacebook />

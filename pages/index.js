@@ -8,7 +8,6 @@ import { colors } from "../styles/colors";
 export default function Home() {
   const theme = useMantineTheme();
   const { classes } = useStyles();
-  console.log(theme);
   return (
     <Stack
       pt={50}

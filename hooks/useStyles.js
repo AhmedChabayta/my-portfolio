@@ -20,7 +20,7 @@ const useStyles = createStyles((theme) => ({
     margin: "3rem auto",
     background:
       theme.colorScheme === "dark" ? colors.cyan900 : theme.colors.dark[2],
-    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+    [`@media (max-width: ${theme.breakpoints.md}px)`]: {
       flexDirection: "column",
       background: "transparent",
       border: "none",

@@ -4,10 +4,11 @@ import { frameworks } from "../../../data/languages";
 
 export default function Frameworks() {
   return (
-    <Stack justify="center" p={50}>
+    <Stack justify="center" p={50} mb={50}>
       <Text className="whitespace-nowrap" size="xl" weight="900" my={20}>
-        Frameworks & Libraries
+        Computer Languages
       </Text>
+
       {frameworks.map((language) => (
         <div
           style={{ margin: "15px 0", whiteSpace: "nowrap" }}
