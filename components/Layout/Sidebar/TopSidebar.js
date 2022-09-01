@@ -35,7 +35,7 @@ function TopSidebar() {
       <Text size="xl" weight={800}>
         Ahmed Chabayta
       </Text>
-      <Text color="dimmed" size="md">
+      <Text color="gray" size="md">
         Frontend Developer
       </Text>
       <Text size="xs">Primarily focused on React & Nextjs</Text>

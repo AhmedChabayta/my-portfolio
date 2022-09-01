@@ -31,7 +31,14 @@ export default function ShortcutIndex() {
       </Modal>
 
       <Group position="center">
-        <Button color="dark" onClick={() => setOpened(true)}>
+        <Button
+          style={{
+            background: "transparent",
+            border: "none",
+          }}
+          variant="default"
+          onClick={() => setOpened(true)}
+        >
           Shortcuts
         </Button>
       </Group>

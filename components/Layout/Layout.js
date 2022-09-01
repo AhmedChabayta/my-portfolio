@@ -1,21 +1,22 @@
 import { useMantineColorScheme, useMantineTheme } from "@mantine/core";
-import { useHotkeys, useLocalStorage } from "@mantine/hooks";
-import { useState } from "react";
+import { useHotkeys } from "@mantine/hooks";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useRecoilState } from "recoil";
+import SidebarContainerWithNoSSR from "./SidebarContainer";
 import Burger from "../Burger";
-import SidebarContainer from "./SidebarContainer";
 import { colors } from "../../styles/colors";
 import GetInTouch from "../GetInTouch";
 import ShortcutIndex from "./ShortcutIndex";
+import useWindowSize from "../../hooks/useWindowSize";
+import { sidebarState } from "../../atoms/sidebarState";
+import NoSSrWrapper from "../NoSSrWrapper";
 
 function Layout({ children }) {
   const [showHelpers, setShowHelpers] = useState(false);
+  const [show, setShow] = useRecoilState(sidebarState);
 
-  const [show, setShow] = useLocalStorage({
-    key: "show",
-    defaultValue: "",
-  });
-
+  const size = useWindowSize();
   const theme = useMantineTheme();
   const handleShow = () => {
     setShow((prevShow) => !prevShow);
@@ -27,14 +28,19 @@ function Layout({ children }) {
   useHotkeys([["mod+C", () => toggleColorScheme()]]);
   useHotkeys([["mod+V", () => handleShow()]]);
 
+  useEffect(() => {
+    if (size.width <= 750) {
+      setShow(false);
+    }
+  }, [size.width]);
+
   return (
     <motion.div
       layout
       style={{
         display: "flex",
-        justifyContent: "space-between",
         height: "100vh",
-        overflow: "hidden",
+        width: "100vw",
         position: "relative",
       }}
     >
@@ -44,15 +50,19 @@ function Layout({ children }) {
         showHelpers={showHelpers}
         setShow={setShow}
       />
-
-      <SidebarContainer show={show} />
-
+      <NoSSrWrapper>
+        <SidebarContainerWithNoSSR size={size} show={show} />
+      </NoSSrWrapper>
       <motion.main
         layout
+        transition={{
+          duration: 0.2,
+        }}
         style={{
-          flex: 1,
-          overflowY: "scroll",
+          width: "100vw",
+          height: "100vh",
           paddingBottom: 20,
+          display: size.width < 750 && show ? "none" : "flex",
         }}
       >
         {children}
@@ -66,7 +76,7 @@ function Layout({ children }) {
           bottom: 0,
           left: 0,
           right: 0,
-          height: "70px",
+          height: 60,
           borderTop: `1px solid ${colors.cyan500}`,
           background:
             theme.colorScheme === "dark" ? colors.gray900 : colors.white,

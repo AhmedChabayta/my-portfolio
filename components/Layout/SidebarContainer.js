@@ -1,27 +1,37 @@
-import { motion } from "framer-motion";
+import { motion, useWillChange } from "framer-motion";
+import { useRecoilState } from "recoil";
+import { useEffect } from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import sidebarContainerStyles from "../../styles/sidebarContainer.styles";
+import { sidebarState } from "../../atoms/sidebarState";
 
-function SidebarContainer({ show }) {
+function SidebarContainer({ size }) {
   const { classes } = sidebarContainerStyles();
+  const [show, setShow] = useRecoilState(sidebarState);
+  useEffect(() => {
+    if (size.width >= 1100) {
+      setShow(true);
+    }
+  }, [size.width]);
+
   return (
     <motion.div
-      className={`${classes.sidebarContainer} will-change-transform transform-gpu relative`}
-      layout
-      initial={{ y: "100%" }}
+      className={`${classes.sidebarContainer}`}
       animate={{
-        y: show ? "100%" : "-100%",
+        x: show ? 0 : -500,
+        display: show ? "inline" : "none",
       }}
       style={{
-        display: show ? "block" : "none",
+        useWillChange,
       }}
       transition={{
-        duration: 0.2,
+        type: "spring",
+        damping: 14,
+        stiffness: 90,
         ease: "easeInOut",
       }}
     >
-      {/* VERTICAL line RIGHT side of sidebar */}
-      <Sidebar show={show} />
+      <Sidebar />
     </motion.div>
   );
 }

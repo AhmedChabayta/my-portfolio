@@ -23,6 +23,9 @@
     "no-shadow": "off",
     "@next/next/no-img-element": "off",
     "no-unused-expressions": "off",
-    "global-require": "off"
+    "global-require": "off",
+    "react/function-component-definition": "off",
+    "arrow-body-style": "off",
+    "import/prefer-default-export": "off"
   }
 }

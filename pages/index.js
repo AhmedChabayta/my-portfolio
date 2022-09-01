@@ -1,19 +1,28 @@
 import { Group, Stack, Text, Title, useMantineTheme } from "@mantine/core";
 import { IconDeviceLaptop } from "@tabler/icons";
-import { FeaturesGrid } from "../components/FeaturesGrid";
+import { useRecoilValue } from "recoil";
+
+import { colors } from "../styles/colors";
+import { data } from "../data";
+import { processState } from "../atoms/processState";
+import Example from "../components/Example";
 import WhatDo from "../components/WhatDo";
 import useStyles from "../hooks/useStyles";
-import { colors } from "../styles/colors";
+import NonSSRWrapper from "../components/NoSSrWrapper";
 
 export default function Home() {
+  const whichProcess = useRecoilValue(processState);
   const theme = useMantineTheme();
   const { classes } = useStyles();
+
   return (
     <Stack
       pt={50}
       pb={100}
       style={{
-        overflow: "hidden",
+        height: "100%",
+        width: "100%",
+        overflowY: "scroll",
         flexShrink: 0,
         background:
           theme.colorScheme === "dark" ? theme.colors.dark[9] : colors.white,
@@ -76,14 +85,14 @@ export default function Home() {
           mx="auto"
           mb={50}
         >
-          <WhatDo Icon={IconDeviceLaptop} title="Web Design" />
-          <WhatDo Icon={IconDeviceLaptop} title="Prototyping" />
-          <WhatDo Icon={IconDeviceLaptop} title="Per Page" />
-          <WhatDo Icon={IconDeviceLaptop} title="Per Project" />
+          <WhatDo data={data[0]} Icon={IconDeviceLaptop} title="Web Design" />
+          <WhatDo data={data[1]} Icon={IconDeviceLaptop} title="Prototyping" />
+          <WhatDo data={data[2]} Icon={IconDeviceLaptop} title="Per Project" />
         </Group>
-
-        <FeaturesGrid />
       </Stack>
+      <NonSSRWrapper>
+        <Example whichProcess={whichProcess} />
+      </NonSSRWrapper>
     </Stack>
   );
 }

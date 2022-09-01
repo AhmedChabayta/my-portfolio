@@ -26,5 +26,5 @@ export default function RouterTransition() {
     };
   }, [router.asPath]);
 
-  return <NavigationProgress />;
+  return <NavigationProgress zIndex={100} />;
 }

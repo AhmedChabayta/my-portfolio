@@ -1,10 +1,19 @@
 /* eslint-disable react/destructuring-assignment */
 import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import { getCookie, setCookie } from "cookies-next";
+import dynamic from "next/dynamic";
 import { useState } from "react";
+import { RecoilRoot } from "recoil";
 import { Layout } from "../components/Layout";
-import RouterTransition from "../components/RouterTransition";
+
 import "../styles/globals.css";
+
+const RouterTransition = dynamic(
+  () => import("../components/RouterTransition"),
+  {
+    ssr: false,
+  }
+);
 
 export default function App(props) {
   const { Component, pageProps } = props;
@@ -53,10 +62,12 @@ export default function App(props) {
         withGlobalStyles
         withNormalizeCSS
       >
-        <Layout>
-          <RouterTransition />
-          <Component {...pageProps} />
-        </Layout>
+        <RecoilRoot>
+          <Layout>
+            <RouterTransition />
+            <Component {...pageProps} />
+          </Layout>
+        </RecoilRoot>
       </MantineProvider>
     </ColorSchemeProvider>
   );

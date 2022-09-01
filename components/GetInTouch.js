@@ -15,7 +15,14 @@ export default function GetInTouch() {
       </Modal>
 
       <Group>
-        <Button color="dark" onClick={() => setOpened(true)}>
+        <Button
+          style={{
+            background: "transparent",
+            border: "none",
+          }}
+          variant="default"
+          onClick={() => setOpened(true)}
+        >
           Get in Touch
         </Button>
       </Group>

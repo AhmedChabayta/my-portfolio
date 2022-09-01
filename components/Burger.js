@@ -1,15 +1,11 @@
-import { Group, Kbd, useMantineColorScheme } from "@mantine/core";
+import { Group, useMantineColorScheme } from "@mantine/core";
 import {
   IconLayoutSidebarLeftCollapse,
   IconLayoutSidebarLeftExpand,
 } from "@tabler/icons";
 
-function Burger({ show, showHelpers, setShow, setShowHelpers }) {
+function Burger({ show, setShow }) {
   const { colorScheme } = useMantineColorScheme();
-
-  if (show) {
-    setShowHelpers(false);
-  }
 
   return (
     <Group
@@ -33,12 +29,6 @@ function Burger({ show, showHelpers, setShow, setShowHelpers }) {
           color={colorScheme === "light" ? "#000000" : "#ffffff"}
           onClick={() => setShow((prevShow) => !prevShow)}
         />
-      )}
-      {showHelpers && (
-        <Group className="hidden md:flex animate-pulse delay-500">
-          <Kbd>⌘</Kbd> +<Kbd>c</Kbd>
-          <Kbd>⌘</Kbd> +<Kbd>v</Kbd>
-        </Group>
       )}
     </Group>
   );
