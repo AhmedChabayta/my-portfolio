@@ -19,7 +19,7 @@ function SidebarContainer({ size }) {
       className={`${classes.sidebarContainer}`}
       animate={{
         x: show ? 0 : -500,
-        display: show ? "inline" : "none",
+        width: show ? "fit-content" : "0px",
       }}
       style={{
         useWillChange,

@@ -1,12 +1,10 @@
-import { Group, useMantineColorScheme } from "@mantine/core";
+import { Group } from "@mantine/core";
 import {
   IconLayoutSidebarLeftCollapse,
   IconLayoutSidebarLeftExpand,
 } from "@tabler/icons";
 
 function Burger({ show, setShow }) {
-  const { colorScheme } = useMantineColorScheme();
-
   return (
     <Group
       style={{
@@ -19,14 +17,10 @@ function Burger({ show, setShow }) {
     >
       {show ? (
         <IconLayoutSidebarLeftCollapse
-          className="opacity-[0.5] hover:opacity-[1] transition-transform ease-linear"
-          color={colorScheme === "light" ? "#000000" : "#ffffff"}
           onClick={() => setShow((prevShow) => !prevShow)}
         />
       ) : (
         <IconLayoutSidebarLeftExpand
-          className="opacity-[0.5] hover:opacity-[1] transition-transform ease-linear"
-          color={colorScheme === "light" ? "#000000" : "#ffffff"}
           onClick={() => setShow((prevShow) => !prevShow)}
         />
       )}

@@ -35,58 +35,60 @@ function Layout({ children }) {
   }, [size.width]);
 
   return (
-    <motion.div
-      layout
-      style={{
-        display: "flex",
-        height: "100vh",
-        width: "100vw",
-        position: "relative",
-      }}
-    >
-      <Burger
-        show={show}
-        setShowHelpers={setShowHelpers}
-        showHelpers={showHelpers}
-        setShow={setShow}
-      />
-      <NoSSrWrapper>
-        <SidebarContainerWithNoSSR size={size} show={show} />
-      </NoSSrWrapper>
-      <motion.main
+    <NoSSrWrapper>
+      <motion.div
         layout
-        transition={{
-          duration: 0.2,
-        }}
         style={{
-          width: "100vw",
-          height: "100vh",
-          paddingBottom: 20,
-          display: size.width < 750 && show ? "none" : "flex",
-        }}
-      >
-        {children}
-      </motion.main>
-      <footer
-        style={{
-          position: "fixed",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: 60,
-          borderTop: `1px solid ${colors.cyan500}`,
-          background:
-            theme.colorScheme === "dark" ? colors.gray900 : colors.white,
+          height: "100vh",
+          width: "100vw",
+          position: "relative",
         }}
       >
-        {/* <FooterNav /> */}
-        <GetInTouch />
-        <ShortcutIndex />
-      </footer>
-    </motion.div>
+        <Burger
+          show={show}
+          setShowHelpers={setShowHelpers}
+          showHelpers={showHelpers}
+          setShow={setShow}
+        />
+
+        <SidebarContainerWithNoSSR size={size} show={show} />
+
+        <motion.main
+          layout
+          transition={{
+            duration: 0.2,
+          }}
+          style={{
+            width: "100vw",
+            height: "100vh",
+            paddingBottom: 20,
+            display: size.width < 750 && show ? "none" : "flex",
+          }}
+        >
+          {children}
+        </motion.main>
+        <footer
+          style={{
+            position: "fixed",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: 60,
+            borderTop: `1px solid ${colors.cyan500}`,
+            background:
+              theme.colorScheme === "dark" ? colors.gray900 : colors.white,
+          }}
+        >
+          {/* <FooterNav /> */}
+          <GetInTouch />
+          <ShortcutIndex />
+        </footer>
+      </motion.div>
+    </NoSSrWrapper>
   );
 }
 export default Layout;
