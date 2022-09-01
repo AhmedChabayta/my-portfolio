@@ -42,6 +42,7 @@ function Layout({ children }) {
           display: "flex",
           height: "100vh",
           width: "100vw",
+          justifyContent: "center",
           position: "relative",
         }}
       >
@@ -83,7 +84,6 @@ function Layout({ children }) {
               theme.colorScheme === "dark" ? colors.gray900 : colors.white,
           }}
         >
-          {/* <FooterNav /> */}
           <GetInTouch />
           <ShortcutIndex />
         </footer>
