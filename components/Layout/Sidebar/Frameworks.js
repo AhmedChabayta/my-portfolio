@@ -23,7 +23,7 @@ export default function Frameworks() {
             className="custom_range whitespace-nowrap"
           >
             <motion.div
-              className="bg-gradient-to-r from-cyan-500 via-cyan-600 to-teal-500 rounded"
+              className="bg-gradient-to-r from-pink-900 to-fuchsia-900 rounded"
               style={{ display: "absolute", top: 0, left: 0 }}
               initial={{ width: 0, height: "100%" }}
               whileInView={{

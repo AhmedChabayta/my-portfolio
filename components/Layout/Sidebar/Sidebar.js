@@ -16,7 +16,7 @@ function Sidebar() {
           width: "70%",
           margin: "25px 0",
           opacity: 1,
-          border: `1px solid ${colors.cyan500}`,
+          border: `1px solid ${colors.pink500}`,
           borderRadius: "20px",
         }}
       />

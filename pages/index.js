@@ -46,17 +46,21 @@ export default function Home() {
               style={{
                 color:
                   theme.colorScheme === "dark"
-                    ? colors.cyan500
+                    ? colors.amber500
                     : colors.teal300,
               }}
               span
-              className="text-cyan-500"
             >
               Frontend{" "}
             </Text>
             Developer
           </Title>
-          <Text className="max-w-sm">
+          <Text
+            color={
+              theme.colorScheme === "dark" ? colors.pink100 : colors.pink900
+            }
+            className="max-w-sm "
+          >
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat
             soluta placeat sequi natus odio maiores nulla aliquid illo, eos
             eligendi laborum, qui ipsa incidunt minima iure optio quas totam
@@ -72,7 +76,10 @@ export default function Home() {
 
       <hr
         style={{
-          border: `1px solid ${colors.cyan500}`,
+          border:
+            theme.colorScheme === "dark"
+              ? `1px solid ${colors.pink900}`
+              : `1px solid ${colors.pink100}`,
           width: "50%",
           margin: "4rem auto",
         }}

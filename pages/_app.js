@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 import { RecoilRoot } from "recoil";
 import { Layout } from "../components/Layout";
+import { colors } from "../styles/colors";
 
 import "../styles/globals.css";
 
@@ -46,16 +47,16 @@ export default function App(props) {
           },
           colors: {
             dark: [
-              "#f9fafb",
+              colors.gray100,
               "#f3f4f6",
               "#e5e7eb",
               "#d1d5db",
               "#9ca3af",
               "#6b7280",
               "#4b5563",
-              "#111827",
-              "#1f2937",
-              "#111827",
+              colors.gray900,
+              colors.red500,
+              colors.gray900, // background
             ],
           },
         }}

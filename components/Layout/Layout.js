@@ -3,7 +3,7 @@ import { useHotkeys } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRecoilState } from "recoil";
-import SidebarContainerWithNoSSR from "./SidebarContainer";
+import SidebarContainer from "./SidebarContainer";
 import Burger from "../Burger";
 import { colors } from "../../styles/colors";
 import GetInTouch from "../GetInTouch";
@@ -18,13 +18,15 @@ function Layout({ children }) {
 
   const size = useWindowSize();
   const theme = useMantineTheme();
+  const { toggleColorScheme } = useMantineColorScheme();
+
   const handleShow = () => {
     setShow((prevShow) => !prevShow);
     if (show) {
       setShowHelpers(false);
     }
   };
-  const { toggleColorScheme } = useMantineColorScheme();
+
   useHotkeys([["mod+C", () => toggleColorScheme()]]);
   useHotkeys([["mod+V", () => handleShow()]]);
 
@@ -53,10 +55,9 @@ function Layout({ children }) {
           setShow={setShow}
         />
 
-        <SidebarContainerWithNoSSR size={size} show={show} />
+        <SidebarContainer size={size} show={show} />
 
         <motion.main
-          layout
           transition={{
             duration: 0.2,
           }}
@@ -64,7 +65,7 @@ function Layout({ children }) {
             width: "100vw",
             height: "100vh",
             paddingBottom: 20,
-            display: size.width < 750 && show ? "none" : "flex",
+            display: size.width < 750 && show ? "none" : "inline",
           }}
         >
           {children}
@@ -79,7 +80,7 @@ function Layout({ children }) {
             left: 0,
             right: 0,
             height: 60,
-            borderTop: `1px solid ${colors.cyan500}`,
+            borderTop: `1px solid ${colors.pink500}`,
             background:
               theme.colorScheme === "dark" ? colors.gray900 : colors.white,
           }}
