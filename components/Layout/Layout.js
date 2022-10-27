@@ -80,9 +80,12 @@ function Layout({ children }) {
             left: 0,
             right: 0,
             height: 60,
-            borderTop: `1px solid ${colors.pink500}`,
+            borderTop:
+              theme.colorScheme === "dark"
+                ? `1px solid ${colors.white}`
+                : `1px solid ${colors.black}`,
             background:
-              theme.colorScheme === "dark" ? colors.gray900 : colors.white,
+              theme.colorScheme === "dark" ? colors.black : colors.white,
           }}
         >
           <GetInTouch />

@@ -23,7 +23,7 @@ export default function Languages() {
             className="custom_range whitespace-nowrap"
           >
             <motion.div
-              className="bg-gradient-to-r from-pink-900 to-fuchsia-900 rounded"
+              className="bg-gradient-to-r from-pink-400 to-fuchsia-700 rounded"
               style={{ display: "absolute", top: 0, left: 0 }}
               initial={{ width: 0, height: "100%" }}
               whileInView={{

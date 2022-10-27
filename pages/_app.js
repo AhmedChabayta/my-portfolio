@@ -47,16 +47,16 @@ export default function App(props) {
           },
           colors: {
             dark: [
-              colors.gray100,
+              colors.gray50,
               "#f3f4f6",
               "#e5e7eb",
               "#d1d5db",
               "#9ca3af",
-              "#6b7280",
+              colors.blue500,
               "#4b5563",
+              colors.black,
               colors.gray900,
-              colors.red500,
-              colors.gray900, // background
+              colors.black, // background
             ],
           },
         }}

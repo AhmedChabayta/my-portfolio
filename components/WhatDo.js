@@ -21,12 +21,12 @@ function WhatDo({ title, Icon, data }) {
         height: "10rem",
         width: "10rem",
         background:
-          theme.colorScheme === "dark" ? colors.pink900 : colors.pink100,
+          theme.colorScheme === "dark" ? colors.gray900 : colors.gray100,
         border:
           theme.colorScheme === "dark"
-            ? `1px solid ${colors.pink100}`
-            : `1px solid ${colors.pink900}`,
-        color: theme.colorScheme === "dark" ? colors.pink100 : colors.pink900,
+            ? `1px solid ${colors.white}`
+            : `1px solid ${colors.black}`,
+        color: theme.colorScheme === "dark" ? colors.white : colors.black,
       }}
     >
       <Icon

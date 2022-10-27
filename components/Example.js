@@ -1,8 +1,20 @@
-import { Group, Stack, Text } from "@mantine/core";
+import { Group, Stack, Text, useMantineTheme } from "@mantine/core";
 
 function Example({ whichProcess }) {
+  const theme = useMantineTheme();
   return (
-    <Group p={50} style={{ justifyContent: "space-between" }}>
+    <Group
+      sx={{
+        flexDirection: "row",
+        [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+          flexDirection: "column",
+        },
+      }}
+      p={50}
+      style={{
+        justifyContent: "space-between",
+      }}
+    >
       <Stack style={{ flex: 0.5 }}>
         <Text style={{ borderBottom: `1px solid ${whichProcess.color}` }}>
           {whichProcess?.word}

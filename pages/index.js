@@ -24,8 +24,6 @@ export default function Home() {
         width: "100%",
         overflowY: "scroll",
         flexShrink: 0,
-        background:
-          theme.colorScheme === "dark" ? theme.colors.dark[9] : colors.white,
       }}
     >
       <Group
@@ -46,8 +44,8 @@ export default function Home() {
               style={{
                 color:
                   theme.colorScheme === "dark"
-                    ? colors.amber500
-                    : colors.teal300,
+                    ? colors.deepPurple400
+                    : colors.deepPurple800,
               }}
               span
             >
@@ -55,12 +53,7 @@ export default function Home() {
             </Text>
             Developer
           </Title>
-          <Text
-            color={
-              theme.colorScheme === "dark" ? colors.pink100 : colors.pink900
-            }
-            className="max-w-sm "
-          >
+          <Text className="max-w-sm ">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat
             soluta placeat sequi natus odio maiores nulla aliquid illo, eos
             eligendi laborum, qui ipsa incidunt minima iure optio quas totam
@@ -78,8 +71,8 @@ export default function Home() {
         style={{
           border:
             theme.colorScheme === "dark"
-              ? `1px solid ${colors.pink900}`
-              : `1px solid ${colors.pink100}`,
+              ? `1px solid ${colors.white}`
+              : `1px solid ${colors.black}`,
           width: "50%",
           margin: "4rem auto",
         }}

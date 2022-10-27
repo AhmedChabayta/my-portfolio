@@ -15,13 +15,13 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "space-evenly",
     border:
       theme.colorScheme === "dark"
-        ? `1px solid ${colors.pink100}`
-        : `1px solid ${colors.pink900}`,
+        ? `1px solid ${colors.white}`
+        : `1px solid ${colors.black}`,
     borderRadius: "12px",
     width: "fit-content",
     maxWidth: "fit-content",
     margin: "3rem auto",
-    background: theme.colorScheme === "dark" ? colors.pink900 : colors.pink100,
+
     [`@media (max-width: ${theme.breakpoints.md}px)`]: {
       flexDirection: "column",
       background: "transparent",

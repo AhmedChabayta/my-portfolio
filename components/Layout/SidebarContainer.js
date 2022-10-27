@@ -8,6 +8,7 @@ import { sidebarState } from "../../atoms/sidebarState";
 function SidebarContainer({ size }) {
   const { classes } = sidebarContainerStyles();
   const [show, setShow] = useRecoilState(sidebarState);
+  
   useEffect(() => {
     if (size.width >= 1100) {
       setShow(true);
