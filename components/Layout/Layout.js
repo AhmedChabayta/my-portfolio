@@ -11,6 +11,7 @@ import ShortcutIndex from "./ShortcutIndex";
 import useWindowSize from "../../hooks/useWindowSize";
 import { sidebarState } from "../../atoms/sidebarState";
 import NoSSrWrapper from "../NoSSrWrapper";
+import { siteConfig } from "../../config/siteConfig";
 
 function Layout({ children }) {
   const [showHelpers, setShowHelpers] = useState(false);
@@ -19,6 +20,8 @@ function Layout({ children }) {
   const size = useWindowSize();
   const theme = useMantineTheme();
   const { toggleColorScheme } = useMantineColorScheme();
+
+  const isNonProduction = siteConfig.deploymentEnv !== "production";
 
   const handleShow = () => {
     setShow((prevShow) => !prevShow);
@@ -48,6 +51,33 @@ function Layout({ children }) {
           position: "relative",
         }}
       >
+        {isNonProduction && (
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 48,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "0 16px",
+              fontWeight: 600,
+              letterSpacing: 0.4,
+              zIndex: 10,
+              backgroundColor:
+                theme.colorScheme === "dark"
+                  ? colors.yellow600
+                  : colors.amber200,
+              color: theme.colorScheme === "dark" ? colors.black : colors.gray900,
+              borderBottom: `1px solid ${colors.gray3000 || colors.gray300}`,
+              textTransform: "uppercase",
+            }}
+          >
+            {`Previewing ${siteConfig.deploymentEnv} build`}
+          </div>
+        )}
         <Burger
           show={show}
           setShowHelpers={setShowHelpers}
@@ -65,6 +95,7 @@ function Layout({ children }) {
             width: "100vw",
             height: "100vh",
             paddingBottom: 20,
+            marginTop: isNonProduction ? 48 : 0,
             display: size.width < 750 && show ? "none" : "inline",
           }}
         >
