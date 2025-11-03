@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "staging": "NEXT_PUBLIC_DEPLOYMENT_ENV=staging NEXT_PUBLIC_SITE_URL=https://portfolio-staging.example.com next build && NEXT_PUBLIC_DEPLOYMENT_ENV=staging NEXT_PUBLIC_SITE_URL=https://portfolio-staging.example.com next start -p 3001",
+    "staging:dev": "env $(cat .env.staging | xargs) next dev -p 3001"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
